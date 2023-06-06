@@ -1,0 +1,3 @@
+bin/sd-agnostics usr/bin/
+data/sd_bench.fio usr/share/sd-agnostics/
+data/sdtest.sh usr/libexec/

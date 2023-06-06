@@ -1,10 +1,13 @@
 #!/bin/bash
 #NAME=SD Card Speed Test
 #DESC=Determines whether an SD card can read and write data fast enough to provide adequate performance.\n\nShould be run on a new or newly-formatted SD card.
+jobs=${SD_AGNOSTICS_JOBS:-4}
+directory=${SD_AGNOSTICS_DIRECTORY:-"/var/tmp"}
+
 for i in 1 2 3
 do
     echo "Run" $i
-    RES=$(fio --output-format=terse --max-jobs=4 /usr/share/agnostics/sd_bench.fio | cut -f 3,7,8,48,49 -d";" -)
+    RES=$(fio --output-format=terse --max-jobs=${jobs} --directory=${directory} /usr/share/sd-agnostics/sd_bench.fio | cut -f 3,7,8,48,49 -d";" -)
     echo "$RES"
     swri=$(echo "$RES" | head -n 2 | tail -n 1 | cut -d ";" -f 4)
     rwri=$(echo "$RES" | head -n 3 | tail -n 1 | cut -d ";" -f 5)
@@ -31,7 +34,7 @@ do
     fi
     rm -f /var/tmp/sd.test.file
     if [ "$pass" -eq 0 ] ; then
-        return $pass
+        exit $pass
     fi
 done
-return $pass
+exit $pass

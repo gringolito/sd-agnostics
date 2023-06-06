@@ -1,0 +1,25 @@
+#!/bin/bash
+
+declare -r cpu_cores=$(getconf _NPROCESSORS_ONLN)
+declare -r bin_name=$(basename "${0}")
+
+function print_help() {
+	echo -e "Usage: ${bin_name} [-d PATH] [-h]"
+	echo -e ""
+ 	echo -e "SD diagnostics tool for testing Application Class SD Card performance"
+	echo -e ""
+	echo -e "Options:"
+	echo -e "  -d PATH   Set the mountpoint to run the tests (Default: /var/tmp)"
+	echo -e "  -h        Print this help message"
+	exit "${1}"
+}
+
+while getopts d:h OPT; do
+	case "${OPT}" in
+	d) dir_path="${OPTARG}" ;;
+	h) print_help 0 ;;
+	*) print_help 1 ;;
+	esac
+done
+
+SD_AGNOSTICS_DIRECTORY="${dir_path}" SD_AGNOSTICS_JOBS="${cpu_cores}" /usr/libexec/sdtest.sh

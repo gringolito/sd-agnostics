@@ -1,9 +1,16 @@
 Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: agnostics
-Source: https://github.com/raspberrypi-ui/agnostics
+Upstream-Name: sd-agnostics
+Source: https://github.com/gringolito/sd-agnostics
 
-Files: *
+Files:     data/sd_bench.fio
+           data/sdtest.sh
 Copyright: 2020 Raspberry Pi Foundation
+License: BSD-3-Clause
+
+Files:     bin/sd-agnostics
+           debian/*
+           README
+Copyright: 2023 Filipe Utzig <filipe@gringolito.com>
 License: BSD-3-Clause
 
 License: BSD-3-Clause
