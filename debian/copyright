@@ -9,7 +9,7 @@ License: BSD-3-Clause
 
 Files:     bin/sd-agnostics
            debian/*
-           README
+           README.md
 Copyright: 2023 Filipe Utzig <filipe@gringolito.com>
 License: BSD-3-Clause
 
