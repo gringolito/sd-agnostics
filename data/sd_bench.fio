@@ -8,7 +8,6 @@ iodepth=4
 size=64m
 direct=1
 end_fsync=1
-directory=/var/tmp
 filename=sd.test.file
 
 [prepare-file]

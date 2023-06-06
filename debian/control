@@ -1,16 +1,16 @@
-Source: agnostics
-Section: admin
+Source: sd-agnostics
+Section: utils
 Priority: optional
-Maintainer: Simon Long <simon@raspberrypi.org>
-Build-Depends: debhelper (>= 9), dh-autoreconf, libglib2.0-dev, libgtk-3-dev (>= 3.24),
- libx11-dev, intltool
-Standards-Version: 3.9.6
-Homepage: https://github.com/raspberrypi-ui/agnostics
-Vcs-Git: git://git@github.com:raspberrypi-ui/agnostics.git
-Vcs-Browser: https://github.com/raspberrypi-ui/agnostics
+Maintainer: Filipe Utzig <filipe@gringolito.com>
+Build-Depends: debhelper (>= 9)
+Standards-Version: 4.5.1
+Homepage: https://github.com/gringolito/sd-agnostics
+Vcs-Git: git://git@github.com:gringolito/sd-agnostics.git
+Vcs-Browser: https://github.com/gringolito/sd-agnostics
+Rules-Requires-Root: no
 
-Package: agnostics
-Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, libgtk-3-0 (>= 3.24), mousepad, fio
-Description: Raspberry Pi Diagnostics
- Extensible diagnostics package to test Raspberry Pi hardware
+Package: sd-agnostics
+Architecture: all
+Depends: ${shlibs:Depends}, ${misc:Depends}, fio
+Description: SD Card Diagnostics
+ SD Card diagnostics tool for testing Application Class SD Card performance
